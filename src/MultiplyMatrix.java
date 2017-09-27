@@ -15,10 +15,14 @@ public class MultiplyMatrix {
     private int column;
     private int row;
 
-    public MultiplyMatrix(int[][] matrixA, int[][] matrixB) {
-        this.matrixA = matrixA;
-        this.matrixB = matrixB;
-    }
+//    public MultiplyMatrix(int[][] matrixA, int[][] matrixB) {
+//        this.matrixA = matrixA;
+//        this.matrixB = matrixB;
+//    }
+//
+//    public MultiplyMatrix() {
+//
+//    }
 
     public int[][] generateMatrix(int column, int row) {
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -37,7 +41,7 @@ public class MultiplyMatrix {
 
         for (int i = 0; i < column; i++) {
             for (int j = 0; j < row; j++) {
-                matrix[column][row] = random.nextInt(1000);
+                matrix[i][j] = random.nextInt(100);
             }
         }
 
@@ -49,14 +53,14 @@ public class MultiplyMatrix {
         res = new int[matrixA.length][matrixB[0].length];
 
         for (int i = 0; i < matrixA.length; i++) {
-
             for (int j = 0; j < matrixB[0].length; j++) {
                 for (int k = 0; k < matrixA[0].length; k++) {
                     res[i][j] += matrixA[i][k] * matrixB[k][j];
                 }
             }
         }
-        for (int[] re : res) {
+        for (int i = 0; i < res.length; i++) {
+            int[] re = res[i];
             for (int j = 0; j < re.length; j++) {
                 System.out.print(re[j] + " ");
             }
