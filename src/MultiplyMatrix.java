@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Random;
 
 /**
@@ -55,7 +52,12 @@ public class MultiplyMatrix {
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixB[0].length; j++) {
                 for (int k = 0; k < matrixA[0].length; k++) {
-                    res[i][j] += matrixA[i][k] * matrixB[k][j];
+                    MultiplyMatrixThread matrixThread = new MultiplyMatrixThread(matrixA[i][k], matrixB[k][j]);
+                    try {
+                        res[i][j] += matrixThread.call();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
